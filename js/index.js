@@ -7,47 +7,47 @@ var PLAYER = 'Gracz';
 var REMIS = 'Remis';
 var COMPUTER = 'Komputer';
 
-var scores = {
-  pc: 0,
-  player: 0
+
+// Parametry rozgrywki
+var params = {
+  pcScore: 0,
+  playerScore: 0,
+  numberOfRounds: 1
 };
 
+// Parametry zmienne
 var playerName;
+var numberOfRoundsToWin;
 
-//Poniżej opisuję wybór przycisków przez gracza
+//Odwołania do poszczególnych elementów
 var elemOutput = document.querySelector('#output'); // pierwszy znaleziony
 var playerResult = document.querySelector('#playerResultContainer');
 var pcResult = document.querySelector('#pcResultContainer');
 var result = document.querySelector('#result');
-var pickRock = document.getElementById(ROCK);
-var pickPaper = document.getElementById(PAPER);
-var pickScissors = document.getElementById(SCISSORS);
 
-// Nasłuchiwanie przycisków wyboru dla gracza
-pickRock.addEventListener('click', function () {
-    playerMove(ROCK)
-});
+// Nasłuchiwanie przycisków za pomocą pętli
+var playerChoice = document.getElementsByClassName('player-move')
 
-pickPaper.addEventListener('click', function () {
-    playerMove(PAPER)
-});
-
-pickScissors.addEventListener('click', function () {
-    playerMove(SCISSORS)
-});
+for (var i = 0; i < playerChoice.length; i++) {
+  playerChoice[i].addEventListener('click', function(){
+    playerMove(this.getAttribute('data-move'))
+  });
+}
 
 // OPIS DZIAŁANIA PRZYCISKU NEWGAME
 
 document.querySelector('#newGame_layer button')
   .addEventListener('click', function(){
     var inputEl = document.querySelector('#newGame_layer input')
-    console.log('Utworzenie nowej gry', inputEl, inputEl.value)
     playerName = inputEl.value
+    var inputRoundss = document.querySelector('#NumberOfRoundsToWinn')
+    numberOfRoundsToWin = inputRoundss.value
     var gameLayer = document.querySelector('#game')
     gameLayer.style.display = 'block'
     var nameSelectLayer = document.querySelector('#newGame_layer')
     nameSelectLayer.style.display = 'none'
     document.querySelector('#new-game').style.display= 'none'
+    console.log('Utworzenie nowej gry', inputEl, inputEl.value, inputRoundss.value)
   });
 document.querySelector('#new-game')
   .addEventListener('click', function(){
@@ -55,9 +55,10 @@ document.querySelector('#new-game')
     gameLayer.style.display = 'none'
     var nameSelectLayer = document.querySelector('#newGame_layer')
     nameSelectLayer.style.display = 'block'
-    scores = {
-      pc: 0,
-      player: 0
+    params = {
+      pcScore: 0,
+      playerScore: 0,
+      numberOfRounds: 1
     }
     elemOutput.innerHTML = ''
     playerResult.innerHTML = ''
@@ -85,7 +86,7 @@ function getPCMove() {
 }
 // OPiS FUNKCJI SPRAWDZAJĄCEJ WYNIK ROZGRYWKI
 function resultOfTheGame(){
-  if (scores.pc === 5){
+  if (params.pcScore == numberOfRoundsToWin){
   result.innerHTML = 'Wygrał komputer';
   document.querySelector('#new-game')
     .style.display = 'block'
@@ -94,7 +95,7 @@ function resultOfTheGame(){
   document.querySelector('#output')
     .style.display = 'none'
   }
-  else if (scores.player === 5){
+  else if (params.playerScore == numberOfRoundsToWin){
   result.innerHTML = 'Wygrał ' + playerName;
   document.querySelector('#new-game')
     .style.display = 'block'
@@ -108,7 +109,7 @@ function resultOfTheGame(){
 // Opis funkcji playerMove
 var playerMove = function(playerPick) {
   var winner = COMPUTER;
-  var winnerLabel = 'Komputer'
+  var winnerLabel = 'wygrał Komputer'
   var pcPick = getPCMove();
   
   console.clear();
@@ -125,7 +126,7 @@ var playerMove = function(playerPick) {
       || (playerPick === PAPER && pcPick === ROCK)
     ) {
       winner = PLAYER;
-      winnerLabel = playerName;
+      winnerLabel = 'wygrał ' + playerName;
     }
     
   }
@@ -133,14 +134,17 @@ var playerMove = function(playerPick) {
   
   console.log('winner ' + winner);
   
-  elemOutput.innerHTML = 'Wygrał: ' + winnerLabel + '<br>' + playerName + ' wybrał: ' + playerPick + '<br>Komputer wybrał: ' + pcPick;
+  elemOutput.innerHTML = 'Wynik: ' + winnerLabel + '<br>' + playerName + ' wybrał: ' + playerPick + '<br>Komputer wybrał: ' + pcPick 
+  + '<br>' + 'Liczba rozegranych rund:' + params.numberOfRounds;
   
   if (winner === COMPUTER){
-  scores.pc += 1
+  params.pcScore += 1
   }
   else if (winner === PLAYER){
-    scores.player += 1
+    params.playerScore += 1
   }
+
+  params.numberOfRounds += 1
   
   watchingScore();
  
@@ -150,6 +154,6 @@ var playerMove = function(playerPick) {
 // Sprawdzanie wyniku rozrywki:
 
 function watchingScore(){
-  playerResult.innerHTML = 'Wynik gracza: ' + scores.player;
-  pcResult.innerHTML = 'Wynik komputera: ' + scores.pc;
+  playerResult.innerHTML = 'Wynik gracza: ' + params.playerScore;
+  pcResult.innerHTML = 'Wynik komputera: ' + params.pcScore;
 }
