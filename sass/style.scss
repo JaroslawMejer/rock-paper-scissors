@@ -1,0 +1,53 @@
+body{
+  width: 2000px;
+  max-width: 100%;
+}
+.buttons-container{
+  width: 800px;
+  max-width: 100%;
+  margin:  auto;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+button{
+  padding: 11px 50px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+	color: #fff;
+  background-color: #02ac46;
+	border: 2px solid #02ac46;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#output{
+  text-align: center;
+  padding: 20px 0;
+}
+#result{
+  padding: 20px 0;
+  width: 800px;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.new-game-layer-style{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.new-game-layer-style button{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
