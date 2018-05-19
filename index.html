@@ -4,48 +4,61 @@
   <head>
     <meta charset="UTF-8">
     <title>Papier kamień nożyce</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
+    <div class="buttons-container">
+      <h1>Rock < Paper < Scissors</h1>
+    </div>
     <div id="newGame_layer" class="new-game-layer-style">
       <h3>Podaj imię gracza:</h3>
       <input type="text" name="player_name" placeholder="Wpisz swoje imię">
       <h3>Do ilu rund chcesz grać?</h3>
       <input type="number" name="number_of_rounds" id="NumberOfRoundsToWinn">
-      <button>Submit</button>
+      <button>Zatwierdź</button>
     </div>
 
-    <div id="game" style="display: none;">
+    <div id="game" style="display: none;" class="game-style">
       <div class="buttons-container">
-        <div class="button-container">
+        <div class="button-container, new-game-Container">
           <button id="new-game" style="display: none;">Nowa gra</button>
         </div>
       </div>
 
       <div class="buttons-container dismiss">
         <div class="button-container">
-          <button id="papier" data-move="papier" class="player-move">Papier</button>
+          <button id="papier" data-move="papier" class="player-move"><a href="#"><i class="far fa-hand-paper"></i></a></button>
         </div>
         <div class="button-container">
-          <button id="kamien" data-move="kamien" class="player-move">Kamień</button>
+          <button id="kamien" data-move="kamien" class="player-move"><a href="#"><i class="far fa-hand-rock"></i></a></button>
         </div>
         <div class="button-container">
-          <button id="nozyce" data-move="nozyce" class="player-move">Nożyce</button>
+          <button id="nozyce" data-move="nozyce" class="player-move"><a href="#"><i class="far fa-hand-scissors"></i></a></button>
         </div>
       </div>
 
       <div id="output"></div>
 
-      <div id="result">
-        <div id="playerResultContainer"></div>
-        <div id="pcResultContainer"></div>
+      <div id="result" class="row">
+        <div class="player-result-container col-6">
+          <a href="#"><i class="far fa-user"></i></a>
+          <h2>Wynik <span id="playerNameSpace"></span>:</h2>
+        </div>
+        <div class="pc-result-container col-6">
+          <a href="#"><i class="fas fa-laptop"></i></a>
+          <h2>Wynik komputera:</h2>
+        </div>
       </div>
 
     </div>
     
-    
+    <div id="playerResultContainer"></div>
+        <div id="pcResultContainer"></div>
 
       <script  src="js/index.js"></script>
 

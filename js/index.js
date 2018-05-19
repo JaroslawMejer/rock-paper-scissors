@@ -24,6 +24,7 @@ var elemOutput = document.querySelector('#output'); // pierwszy znaleziony
 var playerResult = document.querySelector('#playerResultContainer');
 var pcResult = document.querySelector('#pcResultContainer');
 var result = document.querySelector('#result');
+var playerNameContainer = document.querySelector('#playerNameSpace')
 
 // Nasłuchiwanie przycisków za pomocą pętli
 var playerChoice = document.getElementsByClassName('player-move')
@@ -48,6 +49,7 @@ document.querySelector('#newGame_layer button')
     nameSelectLayer.style.display = 'none'
     document.querySelector('#new-game').style.display= 'none'
     console.log('Utworzenie nowej gry', inputEl, inputEl.value, inputRoundss.value)
+    playerNameContainer.innerHTML = playerName
   });
 document.querySelector('#new-game')
   .addEventListener('click', function(){

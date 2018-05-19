@@ -1,9 +1,104 @@
 body {
   width: 2000px;
   max-width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
+/* GRID */
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.offset-4 {
+  margin-left: 33.33%;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+/* END OF GRID */
+/* CLEARFIX HAX */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* CLEARFIX HAX ENDS */
 .buttons-container {
+  width: 800px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.buttons-container h1 {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  color: #2a15b2;
+}
+
+.game-style .buttons-container {
   width: 800px;
   max-width: 100%;
   margin: auto;
@@ -16,18 +111,61 @@ body {
       justify-content: space-around;
 }
 
-button {
-  padding: 11px 50px;
+.game-style .buttons-container .new-game-Container {
+  margin-bottom: 15px;
+}
+
+.game-style .buttons-container button {
+  width: 70px;
+  height: 70px;
   max-width: 100%;
-  font-size: 16px;
-  font-weight: 600;
   text-align: center;
-  white-space: nowrap;
-  color: #fff;
-  background-color: #02ac46;
-  border: 2px solid #02ac46;
-  border-radius: 4px;
+  border: 2px solid #2a15b2;
+  border-radius: 25%;
   cursor: pointer;
+  background-color: transparent;
+  color: #2a15b2;
+  transition: all 0.5s;
+}
+
+.game-style .buttons-container button:hover {
+  background-color: #2a15b2;
+  color: white;
+  border-color: white;
+}
+
+.game-style .buttons-container button a {
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s;
+}
+
+.game-style .buttons-container button:hover a {
+  color: white;
+}
+
+.game-style #new-game {
+  width: 100%;
+  height: 100%;
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: transparent;
+  color: #2a15b2;
+  border-color: #2a15b2;
+  transition: all 0.5s;
+}
+
+.game-style #new-game:hover {
+  background-color: #2a15b2;
+  color: white;
+  border-color: white;
 }
 
 #output {
@@ -40,12 +178,26 @@ button {
   width: 800px;
   max-width: 100%;
   margin: auto;
+}
+
+#result .col-6 {
+  padding: 0;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center;
+  color: #2a15b2;
+}
+
+#result .col-6 a {
+  font-size: 35px;
+}
+
+#result .col-6 h2 {
+  font-size: 18px;
 }
 
 .new-game-layer-style {
@@ -54,8 +206,46 @@ button {
 }
 
 .new-game-layer-style button {
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
   display: block;
   margin: 0 auto;
   margin-top: 15px;
+  background-color: transparent;
+  color: #2a15b2;
+  border-color: #2a15b2;
+  transition: all 0.5s;
+}
+
+.new-game-layer-style button:hover {
+  background-color: #2a15b2;
+  color: white;
+  border-color: white;
+}
+
+.new-game-layer-style h3 {
+  font-weight: bold;
+  color: #2a15b2;
+}
+
+.new-game-layer-style input {
+  border-color: #2a15b2;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.new-game-layer-style ::-webkit-input-placeholder {
+  color: #2a15b2;
+}
+
+.new-game-layer-style :-ms-input-placeholder {
+  color: #2a15b2;
+}
+
+.new-game-layer-style ::placeholder {
+  color: #2a15b2;
 }
 /*# sourceMappingURL=style.css.map */
