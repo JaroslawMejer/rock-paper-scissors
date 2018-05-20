@@ -1,7 +1,7 @@
 'use strict';
 var PAPER = 'papier';
-var ROCK = 'kamien';
-var SCISSORS = 'nozyce';
+var ROCK = 'kamień';
+var SCISSORS = 'nożyce';
 
 var PLAYER = 'Gracz';
 var REMIS = 'Remis';
@@ -47,9 +47,13 @@ document.querySelector('#newGame_layer button')
     gameLayer.style.display = 'block'
     var nameSelectLayer = document.querySelector('#newGame_layer')
     nameSelectLayer.style.display = 'none'
-    document.querySelector('#new-game').style.display= 'none'
+    document.querySelector('#new-game').style.display = 'none'
     console.log('Utworzenie nowej gry', inputEl, inputEl.value, inputRoundss.value)
     playerNameContainer.innerHTML = playerName
+    document.querySelector('#winnerIsPC').style.display = 'none'
+    document.querySelector('#winnerIsPlayer').style.display = 'none'
+
+
   });
 document.querySelector('#new-game')
   .addEventListener('click', function(){
@@ -65,10 +69,8 @@ document.querySelector('#new-game')
     elemOutput.innerHTML = ''
     playerResult.innerHTML = ''
     pcResult.innerHTML = ''
-    result.innerHTML = ''
   
-    result.appendChild (playerResult)
-    result.appendChild (pcResult)
+
     document.querySelector('.dismiss')
     .style.display = 'flex'
     document.querySelector('#output')
@@ -89,7 +91,8 @@ function getPCMove() {
 // OPiS FUNKCJI SPRAWDZAJĄCEJ WYNIK ROZGRYWKI
 function resultOfTheGame(){
   if (params.pcScore == numberOfRoundsToWin){
-  result.innerHTML = 'Wygrał komputer';
+  document.querySelector('#winnerIsPC')
+    .style.display = 'flex'
   document.querySelector('#new-game')
     .style.display = 'block'
   document.querySelector('.dismiss')
@@ -98,13 +101,15 @@ function resultOfTheGame(){
     .style.display = 'none'
   }
   else if (params.playerScore == numberOfRoundsToWin){
-  result.innerHTML = 'Wygrał ' + playerName;
+  document.querySelector('#winnerIsPlayer')
+    .style.display = 'flex'
   document.querySelector('#new-game')
     .style.display = 'block'
   document.querySelector('.dismiss')
     .style.display = 'none'
   document.querySelector('#output')
     .style.display = 'none'
+  document.querySelector('#playerNameSpacee').innerHTML = playerName
   }
 }
 
@@ -156,6 +161,6 @@ var playerMove = function(playerPick) {
 // Sprawdzanie wyniku rozrywki:
 
 function watchingScore(){
-  playerResult.innerHTML = 'Wynik gracza: ' + params.playerScore;
-  pcResult.innerHTML = 'Wynik komputera: ' + params.pcScore;
+  playerResult.innerHTML = params.playerScore;
+  pcResult.innerHTML = params.pcScore;
 }

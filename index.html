@@ -35,10 +35,10 @@
           <button id="papier" data-move="papier" class="player-move"><a href="#"><i class="far fa-hand-paper"></i></a></button>
         </div>
         <div class="button-container">
-          <button id="kamien" data-move="kamien" class="player-move"><a href="#"><i class="far fa-hand-rock"></i></a></button>
+          <button id="kamien" data-move="kamień" class="player-move"><a href="#"><i class="far fa-hand-rock"></i></a></button>
         </div>
         <div class="button-container">
-          <button id="nozyce" data-move="nozyce" class="player-move"><a href="#"><i class="far fa-hand-scissors"></i></a></button>
+          <button id="nozyce" data-move="nożyce" class="player-move"><a href="#"><i class="far fa-hand-scissors"></i></a></button>
         </div>
       </div>
 
@@ -48,17 +48,23 @@
         <div class="player-result-container col-6">
           <a href="#"><i class="far fa-user"></i></a>
           <h2>Wynik <span id="playerNameSpace"></span>:</h2>
+          <h2 id="playerResultContainer"></h2>
         </div>
         <div class="pc-result-container col-6">
           <a href="#"><i class="fas fa-laptop"></i></a>
           <h2>Wynik komputera:</h2>
+          <h2 id="pcResultContainer"></h2>
         </div>
       </div>
 
+      <div class="buttons-container" id="winnerIsPlayer" style="display: none;">
+        <h1>Wygrał <span id="playerNameSpacee"></span>!</h1>
+      </div>
+      <div class="buttons-container" id="winnerIsPC" style="display: none;">
+        <h1>Wygrał komputer!</h1>
+      </div>
+
     </div>
-    
-    <div id="playerResultContainer"></div>
-        <div id="pcResultContainer"></div>
 
       <script  src="js/index.js"></script>
 
