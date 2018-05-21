@@ -4,6 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+/* SASS */
 /* GRID */
 .col-1 {
   width: 8.33%;
@@ -171,6 +172,8 @@ body {
 #output {
   text-align: center;
   padding: 20px 0;
+  color: #2a15b2;
+  line-height: 25px;
 }
 
 #result {

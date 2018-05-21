@@ -4,6 +4,10 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+/* SASS */
+
+$primary-color: #2a15b2;
+
 /* GRID */
 
 .col-1 {width: 8.33%;}
@@ -56,7 +60,7 @@ body{
       text-align: center;
       text-transform: uppercase;
       font-family: 'Ubuntu', sans-serif;
-      color: #2a15b2;
+      color: $primary-color;
   }
 }
 
@@ -77,14 +81,14 @@ body{
       height: 70px;
       max-width: 100%;
       text-align: center;
-      border: 2px solid #2a15b2;
+      border: 2px solid $primary-color;
       border-radius: 25%;
       cursor: pointer;
       background-color: transparent;
-      color: #2a15b2;
+      color: $primary-color;
       transition: all 0.5s;
         &:hover{
-          background-color: #2a15b2;
+          background-color: $primary-color;
           color: white;
           border-color: white;
         }
@@ -111,11 +115,11 @@ body{
     margin: 0 auto;
     margin-top: 15px;
     background-color: transparent;
-    color: #2a15b2;
-    border-color: #2a15b2;
+    color: $primary-color;
+    border-color: $primary-color;
     transition: all 0.5s;
     &:hover{
-      background-color: #2a15b2;
+      background-color: $primary-color;
       color: white;
       border-color: white;
     }
@@ -127,6 +131,8 @@ body{
 #output{
   text-align: center;
   padding: 20px 0;
+  color: $primary-color;
+  line-height: 25px;
 }
 #result{
   padding: 20px 0;
@@ -139,7 +145,7 @@ body{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    color: #2a15b2;
+    color: $primary-color;
     a{
       font-size: 35px;
     }
@@ -162,25 +168,25 @@ body{
     margin: 0 auto;
     margin-top: 15px;
     background-color: transparent;
-    color: #2a15b2;
-    border-color: #2a15b2;
+    color: $primary-color;
+    border-color: $primary-color;
     transition: all 0.5s;
     &:hover{
-      background-color: #2a15b2;
+      background-color: $primary-color;
       color: white;
       border-color: white;
     }
   }
   h3{
     font-weight: bold;
-    color: #2a15b2;
+    color: $primary-color;
   }
   input{
-    border-color: #2a15b2;
+    border-color: $primary-color;
     border-radius: 5px;
     padding: 10px;
   }
   ::placeholder{
-    color: #2a15b2;
+    color: $primary-color;
   }
 }
